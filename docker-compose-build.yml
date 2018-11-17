@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+  vlc-chromecast:
+    build: .
+    image: vlc-chromecast
+    ports:
+      - "8010:8010"
+    container_name: vlc-chromecast
+    volumes:
+      - ./samples:/samples
+    command: ["-vvv", "--network-caching=2000","/samples/sample1.mp4", "--demux-filter=cc_demux", "--play-and-exit"]
